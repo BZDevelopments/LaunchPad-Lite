@@ -32,7 +32,6 @@ const moduleNav = [
 ];
 
 const endNav = [
-  ...(siteConfig.siteType === "saas" ? [{ href: "/dashboard/billing", icon: CreditCard, label: "Billing" }] : []),
   { href: "/dashboard/settings", icon: Settings, label: "Settings" },
 ];
 
