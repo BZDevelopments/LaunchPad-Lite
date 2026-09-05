@@ -19,15 +19,17 @@ That's it. No payments, no AI, no e-commerce. Just the foundation.
 
 ## What's NOT in the box
 
-This is the Lite version. If you need:
+This is the Lite version. The full **LaunchPad Pro** includes:
 
-- **Stripe / LemonSqueezy** subscriptions
-- **AI** — chat, image generation, knowledge base
+- **Stripe / LemonSqueezy** subscriptions and one-time checkouts
+- **AI** — chat, image generation, RAG knowledge base (Vercel AI SDK v5)
 - **E-commerce** — product catalog, cart, checkout
-- **6 site types** — Agency, Portfolio, Blog, Waitlist, Marketing
-- **Email with Resend**, file uploads with Cloudflare R2
+- **6 site types** — SaaS, Agency, Portfolio, Blog, Waitlist, Marketing (all from one config switch)
+- **Email with Resend**, file uploads with Cloudflare R2 / AWS S3
+- **Upstash Redis** rate limiting
 
-→ **[Get LaunchPad Pro ($64.99)](https://launchpad-checkout.netlify.app/)**
+→ **[See the Pro showcase & live demo](https://github.com/BZDevelopments/launchpad-showcase)**
+→ **[Get LaunchPad Pro — $64.99](https://launchpad-checkout.netlify.app/)**
 
 ---
 
@@ -55,10 +57,16 @@ npm run dev
 
 Done. Edit `src/user-control/site-config.ts` to change the name, links, and auth providers.
 
-## License
+---
 
-MIT — use it however you want. No attribution required (though always appreciated).
+## Want to see what Pro looks like first?
+
+Check out the **[showcase repo](https://github.com/BZDevelopments/launchpad-showcase)** — it has screenshots of all 6 layouts and a live interactive demo.
+
+If Pro is what you need, grab it at **[launchpad-checkout.netlify.app](https://launchpad-checkout.netlify.app/)**.
 
 ---
 
-*LaunchPad Pro includes everything in Lite plus payments, AI, and 5 more layouts — [check it out](https://launchpad-checkout.netlify.app/).*
+## License
+
+MIT — use it however you want. No attribution required (though always appreciated).
