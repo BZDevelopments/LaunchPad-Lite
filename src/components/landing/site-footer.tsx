@@ -1,27 +1,26 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Sparkle } from "lucide-react";
 import { siteConfig } from "@/user-control/site-config";
 
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  Product: [
+    { label: "Features", href: "/#features" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Get Pro", href: "https://launchpad-checkout.netlify.app/" },
+  ],
+  Legal: [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
+  ],
+};
+
 export function SiteFooter() {
-  const currentYear = new Date().getFullYear();
-
-  const footerLinks: Record<string, Array<{ label: string; href: string }>> = {
-    Site: [
-      { label: "Features", href: "/#features" },
-      { label: "Pricing", href: "/#pricing" },
-      ...(siteConfig.features.blog ? [{ label: "Blog", href: "/blog" }] : []),
-      ...(siteConfig.features.changelog ? [{ label: "Changelog", href: "/changelog" }] : []),
-    ],
-    Legal: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
-    ],
-  };
-
   return (
-    <footer className="border-t border-border bg-muted/30 px-6 py-12">
+    <footer className="border-t border-border bg-background px-6 py-12">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-8 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div className="mb-8 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           <div>
             <Link href="/" className="mb-3 flex items-center gap-2 font-semibold text-foreground">
               <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
@@ -30,6 +29,12 @@ export function SiteFooter() {
               {siteConfig.name}
             </Link>
             <p className="text-sm text-muted-foreground">{siteConfig.tagline}</p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              By{" "}
+              <a href="https://github.com/BZDevelopments" className="hover:text-foreground underline underline-offset-2">
+                BZDevelopments
+              </a>
+            </p>
           </div>
 
           {Object.entries(footerLinks).map(([group, links]) => (
@@ -49,10 +54,10 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
-          <p className="text-sm text-muted-foreground">© {currentYear} {siteConfig.name}. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© {currentYear} BZDevelopments. MIT License.</p>
           <div className="flex items-center gap-4">
-            <Link href={siteConfig.social.twitter} className="text-sm text-muted-foreground hover:text-foreground">Twitter</Link>
-            <Link href={siteConfig.social.github} className="text-sm text-muted-foreground hover:text-foreground">GitHub</Link>
+            <a href={siteConfig.social.github} className="text-sm text-muted-foreground hover:text-foreground transition-colors">GitHub</a>
+            <a href="https://launchpad-checkout.netlify.app/" className="text-sm font-medium text-primary hover:underline">Get Pro →</a>
           </div>
         </div>
       </div>

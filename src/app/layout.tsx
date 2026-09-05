@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Newsreader, JetBrains_Mono } from "next/font/google"
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "react-hot-toast";
 import { siteConfig } from "@/user-control/site-config";
-import { CartProvider } from "@/engine/hooks/use-cart";
 import "./globals.css";
 
 const fontSans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
   title: { default: `${siteConfig.name} — ${siteConfig.tagline}`, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
   keywords: [...siteConfig.seo.keywords],
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
+  authors: [{ name: "BZDevelopments", url: "https://github.com/BZDevelopments" }],
+  creator: "BZDevelopments",
   openGraph: {
     type: "website",
     locale: siteConfig.seo.locale,
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
@@ -45,13 +44,11 @@ export const viewport: Viewport = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const content = siteConfig.features.modules.shop ? <CartProvider>{children}</CartProvider> : children;
-
   return (
     <html lang="en" className={`${fontSans.variable} ${fontDisplay.variable} ${fontMono.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {content}
+          {children}
           <Toaster
             position="bottom-right"
             toastOptions={{ style: { background: "var(--color-card)", color: "var(--color-foreground)", border: "1px solid var(--color-border)", borderRadius: "0.75rem" } }}

@@ -1,19 +1,18 @@
-export const siteConfig = {
+﻿export const siteConfig = {
   name: "LaunchPad Lite",
-  tagline: "The Open-Source SaaS Starter",
-  description: "A production-ready Next.js 15 starter. Get Launchpad Pro for E-commerce, AI, Portfolios and more.",
+  tagline: "The free Next.js SaaS starter",
+  description: "Authentication, database, and a clean dashboard — ready to go. Need payments, AI, or more layouts? Upgrade to Pro.",
   url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ogImage: "/og-image.png",
 
   email: {
     support: "support@yourapp.com",
-    noreply: "onboarding@yourapp.com",
     admin: "admin@yourapp.com",
   },
 
   social: {
-    twitter: "https://twitter.com/yourbrand",
-    github: "https://github.com/yourbrand",
+    twitter: "https://twitter.com/BZDevelopments",
+    github: "https://github.com/BZDevelopments",
   },
 
   nav: {
@@ -45,11 +44,11 @@ export const siteConfig = {
       content: false,
       leads: false,
       projects: false,
-    }
+    },
   },
 
   seo: {
-    keywords: ["saas", "startup", "boilerplate"],
+    keywords: ["nextjs", "saas", "starter", "boilerplate", "better-auth", "drizzle"],
     twitterCard: "summary_large_image" as const,
     locale: "en_US",
   },

@@ -1,71 +1,64 @@
-<div align="center">
+﻿# LaunchPad Lite
 
-# Launchpad Lite
+A free, open-source Next.js 15 starter for SaaS apps. Auth, database, and a clean dashboard — all wired up. No fluff.
 
-**The Open-Source Next.js 15 SaaS Starter**
-
-A clean, production-ready starting point for your next SaaS project. Pre-configured with Better Auth, Drizzle ORM, and modern Next.js 15 App Router patterns.
-
-[**Get Launchpad Pro ($64.99) →**](https://launchpad-checkout.netlify.app/)
-
-</div>
+Built by [BZDevelopments](https://github.com/BZDevelopments).
 
 ---
 
-## What is Launchpad Lite?
+## What's in the box
 
-Launchpad Lite is the free, open-source version of [Launchpad Pro](https://github.com/BZDevelopments/launchpad-showcase). It gives you the foundational SaaS layout, authentication, and database setup so you can start building immediately without rewiring the plumbing.
+- **Next.js 15** App Router, Server Actions, TypeScript
+- **Better Auth** — email/password, Google OAuth, GitHub OAuth
+- **Drizzle ORM** + PostgreSQL
+- **Tailwind CSS v4** + Radix UI components
+- Dark mode (next-themes)
+- A simple dashboard with Settings and an Admin panel
 
-### Features Included in Lite:
-- **Framework:** Next.js 15 (App Router, Server Actions)
-- **Authentication:** Better Auth (ready for Google, GitHub, Email/Password)
-- **Database:** Drizzle ORM + PostgreSQL
-- **Styling:** Tailwind CSS v4 + UI Components
-- **Layout:** Standard SaaS landing page (Hero, Features, Pricing)
+That's it. No payments, no AI, no e-commerce. Just the foundation.
 
----
+## What's NOT in the box
 
-## Want to skip 30+ more hours of work? Get Launchpad Pro.
+This is the Lite version. If you need:
 
-The **Pro** version includes the complete modular engine that adapts to 6 different site types (SaaS, E-commerce, Portfolio, Agency, Blog, Waitlist) from a single config file, plus all premium integrations:
+- **Stripe / LemonSqueezy** subscriptions
+- **AI** — chat, image generation, knowledge base
+- **E-commerce** — product catalog, cart, checkout
+- **6 site types** — Agency, Portfolio, Blog, Waitlist, Marketing
+- **Email with Resend**, file uploads with Cloudflare R2
 
-✅ **Stripe & LemonSqueezy** subscriptions and one-time checkouts pre-wired
-✅ **Vercel AI SDK v5** with streaming chat, image gen, and pgvector RAG
-✅ **E-commerce & Portfolio Modules** (Cart, product catalog, case studies)
-✅ **Cloudflare R2 / AWS S3** file upload implementation
-✅ **Upstash Redis** rate limiting and **Resend** email templates
-
-👉 **[View the Pro Showcase & Demo](https://github.com/BZDevelopments/launchpad-showcase)**
-👉 **[Purchase Launchpad Pro ($64.99)](https://launchpad-checkout.netlify.app/)**
+→ **[Get LaunchPad Pro ($64.99)](https://launchpad-checkout.netlify.app/)**
 
 ---
 
-## Getting Started with Lite
+## Getting started
 
-1. **Clone & Install**
-   ```bash
-   git clone https://github.com/yourusername/launchpad-lite.git my-app
-   cd my-app
-   npm install
-   ```
+```bash
+git clone https://github.com/BZDevelopments/launchpad-lite.git my-app
+cd my-app
+npm install
+cp .env.example .env.local
+```
 
-2. **Environment Setup**
-   ```bash
-   cp .env.example .env.local
-   ```
-   Fill in your `DATABASE_URL` and generate a `BETTER_AUTH_SECRET`.
+Fill in `.env.local`:
 
-3. **Database Setup**
-   ```bash
-   npm run db:push
-   ```
+```
+DATABASE_URL=postgresql://user:pass@host:5432/db
+BETTER_AUTH_SECRET=your-random-secret
+BETTER_AUTH_URL=http://localhost:3000
+```
 
-4. **Run**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run db:push
+npm run dev
+```
+
+Done. Edit `src/user-control/site-config.ts` to change the name, links, and auth providers.
 
 ## License
 
-Launchpad Lite is open-source under the MIT License.
-Launchpad Pro requires a commercial license.
+MIT — use it however you want. No attribution required (though always appreciated).
+
+---
+
+*LaunchPad Pro includes everything in Lite plus payments, AI, and 5 more layouts — [check it out](https://launchpad-checkout.netlify.app/).*

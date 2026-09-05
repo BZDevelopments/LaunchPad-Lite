@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -8,8 +8,6 @@ import { ThemeToggle } from "@/components/shared/theme-toggle";
 
 export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const showAuth = siteConfig.features.requireAuthForDashboard;
-  const showCart = siteConfig.features.modules.shop;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -31,25 +29,10 @@ export function SiteNav() {
 
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
-          {showCart && (
-            <Link href="/cart" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Cart
-            </Link>
-          )}
-          {showAuth ? (
-            <>
-              <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Sign in
-              </Link>
-              <Link href="/register" className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
-                Get started
-              </Link>
-            </>
-          ) : (
-            <Link href="/contact" className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
-              Get in touch
-            </Link>
-          )}
+          <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Sign in</Link>
+          <Link href="/register" className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity">
+            Get started
+          </Link>
         </div>
 
         <button className="rounded-md p-2 text-muted-foreground hover:text-foreground md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
@@ -66,14 +49,8 @@ export function SiteNav() {
               </Link>
             ))}
             <hr className="border-border" />
-            {showAuth ? (
-              <>
-                <Link href="/login" className="text-sm text-muted-foreground">Sign in</Link>
-                <Link href="/register" className="rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground">Get started</Link>
-              </>
-            ) : (
-              <Link href="/contact" className="rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground">Get in touch</Link>
-            )}
+            <Link href="/login" className="text-sm text-muted-foreground">Sign in</Link>
+            <Link href="/register" className="rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground">Get started</Link>
           </nav>
         </div>
       )}

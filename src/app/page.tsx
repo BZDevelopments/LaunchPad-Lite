@@ -1,10 +1,10 @@
-import { siteConfig } from "@/user-control/site-config";
+﻿import { siteConfig } from "@/user-control/site-config";
 import { SiteNav } from "@/components/landing/site-nav";
 import { SiteFooter } from "@/components/landing/site-footer";
 import { SaasHero } from "@/components/landing/saas/saas-hero";
 import { FeaturesSection } from "@/components/landing/saas/features-section";
 import { PricingSection } from "@/components/landing/saas/pricing-section";
-import { SocialProofSection, CTASection } from "@/components/landing/saas/social-proof";
+import { CTASection } from "@/components/landing/saas/social-proof";
 import { WaitlistForm } from "@/components/landing/waitlist-form";
 
 export default function HomePage() {
@@ -28,7 +28,6 @@ export default function HomePage() {
       <main className="flex-1">
         <SaasHero />
         <FeaturesSection />
-        <SocialProofSection />
         <PricingSection />
         <CTASection />
       </main>
