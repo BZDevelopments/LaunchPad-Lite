@@ -61,7 +61,7 @@ Done. Edit `src/user-control/site-config.ts` to change the name, links, and auth
 
 ## Want to see what Pro looks like first?
 
-Check out the **[showcase repo](https://github.com/BZDevelopments/launchpad-showcase)** — it has screenshots of all 6 layouts and a live interactive demo.
+Check out the **[showcase repo](https://github.com/BZDevelopments/launchpad-showcase)** — it has a look into LaunchPad's layouts and a live interactive demo.
 
 If Pro is what you need, grab it at **[launchpad-checkout.netlify.app](https://launchpad-checkout.netlify.app/)**.
 
