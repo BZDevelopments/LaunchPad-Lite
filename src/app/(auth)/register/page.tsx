@@ -34,7 +34,7 @@ export default function RegisterPage() {
             if (siteConfig.auth.requireEmailVerification) setSuccess(true);
             else router.push("/dashboard");
           },
-          onError: (ctx) => toast.error(ctx.error.message),
+          onError: (ctx) => { toast.error(ctx.error.message); },
         }
       );
     } finally {

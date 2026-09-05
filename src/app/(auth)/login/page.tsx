@@ -47,7 +47,7 @@ export default function LoginPage() {
     try {
       await authClient.signIn.magicLink(
         { email, callbackURL: "/dashboard" },
-        { onSuccess: () => setMagicSent(true), onError: (ctx) => toast.error(ctx.error.message) }
+        { onSuccess: () => setMagicSent(true), onError: (ctx) => { toast.error(ctx.error.message); } }
       );
     } finally {
       setLoading(false);

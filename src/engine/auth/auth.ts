@@ -5,16 +5,15 @@ import { magicLink } from "better-auth/plugins";
 import { db } from "@/engine/db/client";
 import * as schema from "@/engine/db/schema";
 import { siteConfig } from "@/user-control/site-config";
-import { sendAuthEmail } from "@/engine/email/send";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
-      user: schema.users,
-      session: schema.sessions,
-      account: schema.accounts,
-      verification: schema.verifications,
+      user: schema.user,
+      session: schema.session,
+      account: schema.account,
+      verification: schema.verification,
     },
   }),
 
@@ -27,12 +26,7 @@ export const auth = betterAuth({
     minPasswordLength: 8,
     maxPasswordLength: 128,
     sendResetPassword: async ({ user, url }) => {
-      await sendAuthEmail({
-        to: user.email,
-        subject: `Reset your ${siteConfig.name} password`,
-        type: "password-reset",
-        data: { url, name: user.name },
-      });
+      console.log(`[Email Mock] Reset password for ${user.email}: ${url}`);
     },
     resetPasswordTokenExpiresIn: 3600,
     revokeSessionsOnPasswordReset: true,
@@ -42,12 +36,7 @@ export const auth = betterAuth({
     sendOnSignUp: true,
     autoSignInAfterVerification: true,
     sendVerificationEmail: async ({ user, url }) => {
-      await sendAuthEmail({
-        to: user.email,
-        subject: `Verify your ${siteConfig.name} account`,
-        type: "verification",
-        data: { url, name: user.name },
-      });
+      console.log(`[Email Mock] Verify email for ${user.email}: ${url}`);
     },
   },
 
@@ -90,12 +79,7 @@ export const auth = betterAuth({
     deleteUser: {
       enabled: true,
       sendDeleteAccountVerification: async ({ user, url }) => {
-        await sendAuthEmail({
-          to: user.email,
-          subject: `Confirm account deletion — ${siteConfig.name}`,
-          type: "delete-account",
-          data: { url, name: user.name },
-        });
+        console.log(`[Email Mock] Delete account for ${user.email}: ${url}`);
       },
     },
   },
@@ -110,12 +94,7 @@ export const auth = betterAuth({
       ? [
           magicLink({
             sendMagicLink: async ({ email, url }) => {
-              await sendAuthEmail({
-                to: email,
-                subject: `Your ${siteConfig.name} sign-in link`,
-                type: "magic-link",
-                data: { url },
-              });
+              console.log(`[Email Mock] Magic link for ${email}: ${url}`);
             },
           }),
         ]
