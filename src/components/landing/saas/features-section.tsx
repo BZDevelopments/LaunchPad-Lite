@@ -1,4 +1,6 @@
-﻿import { motion } from "framer-motion";
+"use client";
+
+import { motion } from "framer-motion";
 import { ShieldCheck, Database, Zap, Code2, Moon, GitFork } from "lucide-react";
 
 const features = [
